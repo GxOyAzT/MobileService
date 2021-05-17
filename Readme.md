@@ -1,12 +1,12 @@
 # MobileService
 
-### About app
+## About app
 
 Mobile Service is data processor for `reat native` app [GoFlashcards](https://expo.io/@gxoyazt/projects/GoFlashcards).
 You can find code for front-end [here](https://github.com/GxOyAzT/MobileServiceFront).
 
 
-### Architecture
+## Architecture
 
 ![Architecture schema](./Documentation/flashcardsArchitecture.drawio.png)
 
@@ -62,7 +62,7 @@ Used packages:
 * Api is tested using end-to-end approach. Each method that handle web request has its own test.
 
 
-### Database
+## Database
 
 ![Database schema](./Documentation/flashcardsDatabase.drawio.png)
 
@@ -73,4 +73,4 @@ Tables:
 * FlaschardProgresses table reflects both sides of one flashcard (word) so that laerning process can be from native to foreign and from foreign to native
 * StatsUser table contain information of how much flashcards user turn over each day
 
-Engine: `SQL Server`. Database was created using EntityFrameworkCore migrations (code-first approach).
+Engine: `SQL Server`. Database was created using EntityFrameworkCore migrations (`code-first approach`).
