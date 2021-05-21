@@ -5,9 +5,6 @@ using MobileService.Core.WorkUnits;
 using MobileService.DataAccess.Repos;
 using MobileService.Entities;
 using MobileService.Entities.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -56,8 +53,7 @@ namespace MobileService.Core.Handlers.Practice
 
             await _flashcardProgressRepo.Update(flashcardProgressModel);
 
-            var command = new IncrementStatsUserC(request.UserId);
-            await _mediator.Send(command);
+            _mediator.Send(new IncrementStatsUserC(request.UserId));
 
             return new ActionReponseModel(true);
         }

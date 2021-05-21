@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MobileService.Core;
+using MobileService.Core.Builders;
 using MobileService.Core.Commands.Flashcards;
 using MobileService.DataAccess;
 using MobileService.DataAccess.Repos;
@@ -25,6 +26,7 @@ namespace MobileService.Tests.Core.Commands.Flashcrads
             var serviceProvider = new ServiceCollection()
                 .AddTransient<ICollectionRepo, CollectionRepo>()
                 .AddTransient<IFlashcardRepo, FlashcardRepo>()
+                .AddTransient<IFlashcardBuilder, FlashcardBuilder>()
                 .AddDbContext<AppDbContext>(options => options.UseSqlServer(MockDatabaseFactory.DbMockConnectionString))
                 .AddMediatR(typeof(MediatREntryPoint).Assembly)
                 .BuildServiceProvider();
@@ -59,6 +61,7 @@ namespace MobileService.Tests.Core.Commands.Flashcrads
 
             var serviceProvider = new ServiceCollection()
                 .AddTransient<ICollectionRepo, CollectionRepo>()
+                .AddTransient<IFlashcardBuilder, FlashcardBuilder>()
                 .AddTransient<IFlashcardRepo, FlashcardRepo>()
                 .AddDbContext<AppDbContext>(options => options.UseSqlServer(MockDatabaseFactory.DbMockConnectionString))
                 .AddMediatR(typeof(MediatREntryPoint).Assembly)
@@ -94,6 +97,7 @@ namespace MobileService.Tests.Core.Commands.Flashcrads
 
             var serviceProvider = new ServiceCollection()
                 .AddTransient<ICollectionRepo, CollectionRepo>()
+                .AddTransient<IFlashcardBuilder, FlashcardBuilder>()
                 .AddTransient<IFlashcardRepo, FlashcardRepo>()
                 .AddDbContext<AppDbContext>(options => options.UseSqlServer(MockDatabaseFactory.DbMockConnectionString))
                 .AddMediatR(typeof(MediatREntryPoint).Assembly)
@@ -129,6 +133,7 @@ namespace MobileService.Tests.Core.Commands.Flashcrads
 
             var serviceProvider = new ServiceCollection()
                 .AddTransient<ICollectionRepo, CollectionRepo>()
+                .AddTransient<IFlashcardBuilder, FlashcardBuilder>()
                 .AddTransient<IFlashcardRepo, FlashcardRepo>()
                 .AddDbContext<AppDbContext>(options => options.UseSqlServer(MockDatabaseFactory.DbMockConnectionString))
                 .AddMediatR(typeof(MediatREntryPoint).Assembly)
@@ -164,6 +169,7 @@ namespace MobileService.Tests.Core.Commands.Flashcrads
 
             var serviceProvider = new ServiceCollection()
                 .AddTransient<ICollectionRepo, CollectionRepo>()
+                .AddTransient<IFlashcardBuilder, FlashcardBuilder>()
                 .AddTransient<IFlashcardRepo, FlashcardRepo>()
                 .AddDbContext<AppDbContext>(options => options.UseSqlServer(MockDatabaseFactory.DbMockConnectionString))
                 .AddMediatR(typeof(MediatREntryPoint).Assembly)

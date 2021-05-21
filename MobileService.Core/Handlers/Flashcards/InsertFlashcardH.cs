@@ -1,13 +1,9 @@
 ﻿using MediatR;
+using MobileService.Core.Builders;
 using MobileService.Core.Commands.Flashcards;
 using MobileService.Core.Queries.Collections;
 using MobileService.DataAccess.Repos;
 using MobileService.Entities;
-using MobileService.Entities.Enums;
-using MobileService.Entities.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,13 +13,16 @@ namespace MobileService.Core.Handlers.Flashcards
     {
         private readonly IMediator _mediator;
         private readonly IFlashcardRepo _flashcardRepo;
+        private readonly IFlashcardBuilder _flashcardBuilder;
 
         public InsertFlashcardH(
             IMediator mediator,
-            IFlashcardRepo flashcardRepo)
+            IFlashcardRepo flashcardRepo,
+            IFlashcardBuilder flashcardBuilder)
         {
             _mediator = mediator;
             _flashcardRepo = flashcardRepo;
+            _flashcardBuilder = flashcardBuilder;
         }
 
         public async Task<ActionReponseModel> Handle(InsertFlashcardC request, CancellationToken cancellationToken)
@@ -40,27 +39,7 @@ namespace MobileService.Core.Handlers.Flashcards
                 return new ActionReponseModel(false, $"Cannot find collection of id {request.UserId}");
             }
 
-            var inputModel = new FlashcardModel()
-            {
-                Foreign = request.Flashcard.Foreign,
-                Native = request.Flashcard.Native,
-                CollectionModelId = request.Flashcard.CollectionId,
-                FlashcardProgressModels = new List<FlashcardProgressModel>()
-                {
-                    new FlashcardProgressModel()
-                    {
-                        PracticeDirection = PracticeDirection.ForeignToNative,
-                        PracticeDate = DateTime.MinValue,
-                        CorrectInRow = 0
-                    },
-                    new FlashcardProgressModel()
-                    {
-                        PracticeDirection = PracticeDirection.NativeToForeign,
-                        PracticeDate = DateTime.MinValue,
-                        CorrectInRow = 0
-                    }
-                }
-            };
+            var inputModel = _flashcardBuilder.Build(request.Flashcard.Native, request.Flashcard.Foreign, request.Flashcard.CollectionId);
 
             await _flashcardRepo.Insert(inputModel);
 

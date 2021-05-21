@@ -6,6 +6,8 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
+#nullable enable
+
 namespace MobileService.Core.Handlers.StatsUser
 {
     public class GetStatsUserWeekH : IRequestHandler<GetStatsUserWeekQ, StatsUserTurnOverWeekGetModel>
@@ -21,19 +23,19 @@ namespace MobileService.Core.Handlers.StatsUser
         {
             return new StatsUserTurnOverWeekGetModel()
             {
-                TodayDate = await DecorateDateDayMonth(DateTime.Now.Date),
+                TodayDate = DecorateDateDayMonth(DateTime.Now.Date),
                 TodayCount = await Count(request.UserId, DateTime.Now.Date),
-                YesterdayDate = await DecorateDateDayMonth(DateTime.Now.Date.AddDays(-1)),
+                YesterdayDate = DecorateDateDayMonth(DateTime.Now.Date.AddDays(-1)),
                 YesterdayCount = await Count(request.UserId, DateTime.Now.Date.AddDays(-1)),
-                ThreeDayBeforeDate = await DecorateDateDayMonth(DateTime.Now.Date.AddDays(-2)),
+                ThreeDayBeforeDate = DecorateDateDayMonth(DateTime.Now.Date.AddDays(-2)),
                 ThreeDayBeforeCount = await Count(request.UserId, DateTime.Now.Date.AddDays(-2)),
-                FourDayBeforeDate = await DecorateDateDayMonth(DateTime.Now.Date.AddDays(-3)),
+                FourDayBeforeDate = DecorateDateDayMonth(DateTime.Now.Date.AddDays(-3)),
                 FourDayBeforeCount = await Count(request.UserId, DateTime.Now.Date.AddDays(-3)),
-                FiveDayBeforeDate = await DecorateDateDayMonth(DateTime.Now.Date.AddDays(-4)),
+                FiveDayBeforeDate = DecorateDateDayMonth(DateTime.Now.Date.AddDays(-4)),
                 FiveDayBeforeCount = await Count(request.UserId, DateTime.Now.Date.AddDays(-4)),
-                SixDayBeforeDate = await DecorateDateDayMonth(DateTime.Now.Date.AddDays(-5)),
+                SixDayBeforeDate = DecorateDateDayMonth(DateTime.Now.Date.AddDays(-5)),
                 SixDayBeforeCount = await Count(request.UserId, DateTime.Now.Date.AddDays(-5)),
-                SevenDayBeforeDate = await DecorateDateDayMonth(DateTime.Now.Date.AddDays(-6)),
+                SevenDayBeforeDate = DecorateDateDayMonth(DateTime.Now.Date.AddDays(-6)),
                 SevenDayBeforeCount = await Count(request.UserId, DateTime.Now.Date.AddDays(-6))
             };
         }
@@ -50,7 +52,7 @@ namespace MobileService.Core.Handlers.StatsUser
             return stat.FlashcardsTurnOverCount;
         }
 
-        private async Task<string> DecorateDateDayMonth(DateTime date)
+        private string DecorateDateDayMonth(DateTime date)
         {
             return date.DayOfWeek.ToString().Substring(0,3);
         }

@@ -73,7 +73,7 @@ namespace MobileService.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MobileService.API", Version = "v1" });
             });
 
-            DependencyMapper.Map(services);
+            services.MapDependencies();
 
             services.AddMediatR(typeof(MediatREntryPoint).Assembly);
 

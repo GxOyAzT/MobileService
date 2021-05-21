@@ -62,7 +62,7 @@ namespace MobileService.Tests.MockData
             #region Flashcards
             Flashcards = new List<FlashcardModel>();
 
-            Flashcards.Add(new FlashcardModel()
+            Flashcards.Add(new FlashcardModel() // userId: 9a4e1d79-d64e-4ec4-85e5-53bdef5043f4
             {
                 Id = Guid.Parse("6aa83ba0-1396-428f-adb7-d7ab972459eb"),
                 CollectionModelId = Guid.Parse("d30c8f79-291b-4532-8f22-b693e61d6bb5"),
@@ -87,7 +87,7 @@ namespace MobileService.Tests.MockData
                 }
             });
 
-            Flashcards.Add(new FlashcardModel()
+            Flashcards.Add(new FlashcardModel() // userId: 9a4e1d79-d64e-4ec4-85e5-53bdef5043f4
             {
                 Id = Guid.Parse("30364c9b-e00e-4811-8921-69ab3db427cd"),
                 CollectionModelId = Guid.Parse("d30c8f79-291b-4532-8f22-b693e61d6bb5"),
@@ -112,7 +112,7 @@ namespace MobileService.Tests.MockData
                 }
             });
 
-            Flashcards.Add(new FlashcardModel()
+            Flashcards.Add(new FlashcardModel() // userId: 9a4e1d79-d64e-4ec4-85e5-53bdef5043f4
             {
                 Id = Guid.Parse("d9a1f8f7-af5b-479e-94ee-4f64e17fadfa"),
                 CollectionModelId = Guid.Parse("bbcdadd7-2cd2-43f5-ab23-3d6260e75da6"),
@@ -137,7 +137,7 @@ namespace MobileService.Tests.MockData
                 }
             });
 
-            Flashcards.Add(new FlashcardModel()
+            Flashcards.Add(new FlashcardModel() // userId: fcabcb46-12dc-4013-bc92-6f00aae903b4
             {
                 Id = Guid.Parse("691de3f1-8117-465f-b8d9-7cfcefc372fe"),
                 CollectionModelId = Guid.Parse("82c3a0d1-a73c-41e2-a8f3-ef525e5f0ffa"),
@@ -162,7 +162,7 @@ namespace MobileService.Tests.MockData
                 }
             });
 
-            Flashcards.Add(new FlashcardModel()
+            Flashcards.Add(new FlashcardModel() // userId: 9a4e1d79-d64e-4ec4-85e5-53bdef5043f4
             {
                 Id = Guid.Parse("fcf78bdc-03c7-4333-b50c-90d714750189"),
                 CollectionModelId = Guid.Parse("d30c8f79-291b-4532-8f22-b693e61d6bb5"),
@@ -181,7 +181,7 @@ namespace MobileService.Tests.MockData
                     {
                         Id = Guid.Parse("9670047b-d9ad-4746-89b7-97aae2d9f04d"),
                         PracticeDirection = PracticeDirection.NativeToForeign,
-                        CorrectInRow = 11,
+                        CorrectInRow = 10,
                         PracticeDate = DateTime.Now.Date
                     }
                 }

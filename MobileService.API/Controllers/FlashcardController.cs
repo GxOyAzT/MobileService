@@ -67,6 +67,24 @@ namespace MobileService.API.Controllers
             return Ok(_mapper.Map<List<FlashcardGetModel>>(actionResponse));
         }
 
+        [HttpGet]
+        [Route("getlistWithProgresscollectionid/{collectionId}")]
+        public async Task<IActionResult> GetFlashcardsWithProgress(Guid collectionId)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (String.IsNullOrEmpty(userId))
+            {
+                return NotFound();
+            }
+
+            var getFlashcardsListCommand = new GetFlashcardsListWithProgressesParallelQ(collectionId, userId);
+
+            var actionResponse = await _mediator.Send(getFlashcardsListCommand);
+
+            return Ok(_mapper.Map<List<FlashcardWithProgressionGetModel>>(actionResponse));
+        }
+
         [HttpDelete]
         [Route("delete/{flashcardId}")]
         public async Task<IActionResult> DeleteFlashcard(Guid flashcardId)

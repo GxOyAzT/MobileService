@@ -7,6 +7,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
+#nullable enable
+
 namespace MobileService.Core.Handlers.StatsUser
 {
     public class GetStatsUserProgressH : IRequestHandler<GetStatsUserProgressQ, StatsUserProgressGetModel>

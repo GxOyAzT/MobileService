@@ -47,6 +47,8 @@ namespace MobileService.Tests.Api.PracticeTests
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
+            await Task.Delay(1000 * 5);
+
             using (var db = MockDatabaseFactory.Build())
             {
                 var flashcardProgressModel = await db.FlashcardProgresses.FirstOrDefaultAsync(e => e.Id == Guid.Parse("594b1485-e842-482f-9b09-a649cb72bdb1"));
@@ -54,8 +56,6 @@ namespace MobileService.Tests.Api.PracticeTests
                 Assert.Equal(0, flashcardProgressModel.CorrectInRow);
                 Assert.Equal(DateTime.Now.Date, flashcardProgressModel.PracticeDate);
             }
-
-            Thread.Sleep(1000 * 5);
         }
 
         [Fact]
@@ -71,6 +71,8 @@ namespace MobileService.Tests.Api.PracticeTests
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
+            await Task.Delay(1000 * 5);
+
             using (var db = MockDatabaseFactory.Build())
             {
                 var flashcardProgressModel = await db.FlashcardProgresses.FirstOrDefaultAsync(e => e.Id == Guid.Parse("594b1485-e842-482f-9b09-a649cb72bdb1"));
@@ -78,8 +80,6 @@ namespace MobileService.Tests.Api.PracticeTests
                 Assert.Equal(2, flashcardProgressModel.CorrectInRow);
                 Assert.Equal(DateTime.Now.Date.AddDays(1), flashcardProgressModel.PracticeDate);
             }
-
-            Thread.Sleep(1000 * 5);
         }
 
         [Fact]
@@ -95,6 +95,8 @@ namespace MobileService.Tests.Api.PracticeTests
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
+            await Task.Delay(1000 * 5);
+
             using (var db = MockDatabaseFactory.Build())
             {
                 var flashcardProgressModel = await db.FlashcardProgresses.FirstOrDefaultAsync(e => e.Id == Guid.Parse("594b1485-e842-482f-9b09-a649cb72bdb1"));
@@ -102,8 +104,6 @@ namespace MobileService.Tests.Api.PracticeTests
                 Assert.Equal(3, flashcardProgressModel.CorrectInRow);
                 Assert.Equal(DateTime.Now.Date.AddDays(3), flashcardProgressModel.PracticeDate);
             }
-
-            Thread.Sleep(1000 * 5);
         }
 
         [Fact]
@@ -114,10 +114,11 @@ namespace MobileService.Tests.Api.PracticeTests
 
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjlhNGUxZDc5LWQ2NGUtNGVjNC04NWU1LTUzYmRlZjUwNDNmNCIsIm5iZiI6MTYxOTc2OTYzOCwiZXhwIjoxNjE5ODU2MDM4LCJpc3MiOiJhIn0.tohmUFgbnXqaMoehSX9i-p_F6vpdoziu9Jz5XgM1N1k");
 
-
             var response = await _client.GetAsync("api/practice/updateflashcardprogress/9dccbe2b-fd54-42e7-8f35-c0fba62855f7/3");
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+            await Task.Delay(1000 * 5);
 
             using (var db = MockDatabaseFactory.Build())
             {
@@ -126,8 +127,6 @@ namespace MobileService.Tests.Api.PracticeTests
                 Assert.Equal(5, flashcardProgressModel.CorrectInRow);
                 Assert.Equal(DateTime.Now.Date, flashcardProgressModel.PracticeDate);
             }
-
-            Thread.Sleep(1000 * 5);
         }
 
         [Fact]
@@ -147,6 +146,8 @@ namespace MobileService.Tests.Api.PracticeTests
             
             Assert.Equal(HttpStatusCode.OK, response2.StatusCode);
 
+            await Task.Delay(1000 * 5);
+
             using (var db = MockDatabaseFactory.Build())
             {
                 var flashcardProgressModel = await db.FlashcardProgresses.FirstOrDefaultAsync(e => e.Id == Guid.Parse("9dccbe2b-fd54-42e7-8f35-c0fba62855f7"));
@@ -154,8 +155,6 @@ namespace MobileService.Tests.Api.PracticeTests
                 Assert.Equal(3, flashcardProgressModel.CorrectInRow);
                 Assert.Equal(DateTime.Now.Date, flashcardProgressModel.PracticeDate);
             }
-
-            Thread.Sleep(1000 * 5);
         }
     }
 }
