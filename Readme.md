@@ -61,6 +61,9 @@ Used packages:
   * integratioin tests approach: testing units that has inject other units. Mostly repos from DataAccess layer.
 * Api is tested using end-to-end approach. Each method that handle web request has its own test.
 
+### TestsSpeed
+`Console Application .NET Core 3.1` is used for creating performance tests.
+[Example](https://github.com/GxOyAzT/MobileService/tree/master/MobileService.TestsSpeed/GetFlashcardsListWithProgressTests) of test conclusive using parallel approach over synchronous.
 
 ## Database
 

@@ -5,8 +5,8 @@ This test show how much more parallel approach is better for retreiving list of 
 ## Tests results
 
 This table shows how much time handler needs to prepare data.
-* SYNC - GetFlashcardsListWithProgressesH
-* PARALLEL - GetFlashcardsListWithProgressesParallelH
+* SYNC - [GetFlashcardsListWithProgressesH](https://github.com/GxOyAzT/MobileService/blob/master/MobileService.Core/Handlers/Flashcards/GetFlashcardsListWithProgressesH.cs)
+* PARALLEL - [GetFlashcardsListWithProgressesParallelH](https://github.com/GxOyAzT/MobileService/blob/master/MobileService.Core/Handlers/Flashcards/GetFlashcardsListWithProgressesParallelH.cs)
 
 | QTY | SYNC | PARALLEL |
 | :---: | ---: | ---: |
